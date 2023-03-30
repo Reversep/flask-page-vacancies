@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5 mb-5 text-center">Сотрудники</h2>
+        <div class="mt-5 mb-5" style="max-width: 600px;">
+        </div>
+         <table class="table">
+          <thead>
+            <tr>
+               <th scope="col">id</th>
+              <th scope="col">Фио Сотрудника</th>
+              <th scope="col">Номер телефон</th>
+              <th scope="col">Дата трудоустройства</th>
+              <th scope="col">Дата увольнения</th>
+              <th scope="col">Дата рождения</th>
+              <th scope="col">Филиал</th>
+              <th scope="col">Должность</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for employee in employees %}
+            <tr>
+              <th scope="row">{{ employee.id }}</th>
+              <td>{{ employee.full_name }}</td>
+              <td>{{ employee.phone_number }}</td>
+              <td>{{ employee.data_in }}</td>
+              <td>{{ employee.data_out }}</td>
+              <td>{{ employee.data_birth }}</td>
+              <td>{{ employee.branch.branch_name }}</td>
+              <td>{{ employee.position.position_name }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        <a href="{{ url_for('branch_list') }}">Список Филиалов</a>
+        <p1> </p1>
+        <h1> </h1>
+        <a href="{{ url_for('position_list') }}">Список должностей</a>
+        <h1> </h1>
+        <h1> </h1>
+        <a href="{{ url_for('branch_add') }}">+ Добавить Филиал</a>
+        <p1> </p1>
+        <h1> </h1>
+        <a href="{{ url_for('position_add') }}">+ Добавить должность</a>
+        <h1> </h1>
+        <h1> </h1>
+        <a href="{{ url_for('employee_add') }}">+ Добавить Сотрудника</a>
+
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
